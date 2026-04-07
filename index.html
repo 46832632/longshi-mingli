@@ -464,6 +464,102 @@
       font-family: monospace;
     }
 
+    .formula-main {
+      background: rgba(201,168,76,0.05);
+      border-left: 3px solid var(--gold);
+      padding: 1rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .formula-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      font-family: 'Noto Serif SC', serif;
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .formula-row.sub {
+      padding-left: 4rem;
+      color: var(--text-dim);
+    }
+
+    .formula-label {
+      color: var(--gold);
+      font-weight: 600;
+      min-width: 5rem;
+    }
+
+    .formula-eq {
+      color: var(--gold-dim);
+    }
+
+    .formula-val {
+      color: var(--text-main);
+      font-family: 'Courier New', monospace;
+    }
+
+    .formula-detail-toggle {
+      text-align: center;
+      padding: 0.8rem;
+      color: var(--gold-dim);
+      font-size: 0.85rem;
+      cursor: pointer;
+      border-top: 1px dashed rgba(201,168,76,0.3);
+      transition: all 0.3s;
+    }
+
+    .formula-detail-toggle:hover {
+      color: var(--gold);
+    }
+
+    .formula-detail {
+      display: none;
+      padding-top: 1rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+
+    .formula-detail.show {
+      display: block;
+      max-height: 2000px;
+    }
+
+    .formula-section {
+      background: rgba(0,0,0,0.2);
+      padding: 1rem;
+      margin-bottom: 0.8rem;
+      border-radius: 4px;
+    }
+
+    .formula-section h4 {
+      color: var(--gold);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      font-family: 'Courier New', monospace;
+    }
+
+    .formula-section p {
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      line-height: 1.6;
+      margin: 0;
+      font-family: 'Courier New', monospace;
+    }
+
+    .formula-section.highlight {
+      background: rgba(201,168,76,0.15);
+      border: 1px solid var(--gold-dim);
+      text-align: center;
+    }
+
+    .formula-section.highlight h4 {
+      color: var(--gold);
+      font-family: 'Noto Serif SC', serif;
+    }
+
     .system-visual {
       display: flex;
       flex-direction: column;
@@ -868,14 +964,76 @@
         通过系统分析，帮助您发现天赋优势、把握人生机遇、规避潜在风险。
       </p>
       <div class="formula-box reveal">
-        <p class="formula-title">CORE FORMULA · 核心公式</p>
-        <p class="formula-text">
-          命运指数 = 格局×0.30 + 流通×0.20<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 调候×0.15 + 紫微×0.10<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 风水×0.10 + 相貌×0.05<br><br>
-          成功指数 = 天赋×0.20 + 努力×0.20<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 时机×0.20 + 人脉×0.15
-        </p>
+        <p class="formula-title">CORE FORMULA · 核心公式体系</p>
+        <div class="formula-main">
+          <div class="formula-row">
+            <span class="formula-label">命运指数</span>
+            <span class="formula-eq">=</span>
+            <span class="formula-val">格局×0.25 + 流通×0.18 + 调候×0.12 + 神煞×0.10</span>
+          </div>
+          <div class="formula-row sub">
+            <span class="formula-val">+ 五行平衡×0.10 + 日主强弱×0.08 + 大运×0.10 + 紫微×0.07</span>
+          </div>
+          <div class="formula-row sub">
+            <span class="formula-val">× 时代系数 × 地域系数</span>
+          </div>
+        </div>
+        <div class="formula-main">
+          <div class="formula-row">
+            <span class="formula-label">成功指数</span>
+            <span class="formula-eq">=</span>
+            <span class="formula-val">天赋×0.22 + 努力×0.18 + 时机×0.15 + 人脉×0.12</span>
+          </div>
+          <div class="formula-row sub">
+            <span class="formula-val">+ 风水×0.10 + 相貌×0.08 + 祖荫×0.08 + 贵人×0.07</span>
+          </div>
+          <div class="formula-row sub">
+            <span class="formula-val">× 心性系数 × 行动系数</span>
+          </div>
+        </div>
+        <div class="formula-detail-toggle" onclick="toggleFormulaDetail()">展开完整公式 &raquo;</div>
+        <div class="formula-detail" id="formulaDetail">
+          <div class="formula-section">
+            <h4>格局指数 = 格局质量分 × 成格系数 × 清纯度系数</h4>
+            <p>质量分：专旺格90-100 | 从格85-95 | 杀印相生88-98 | 普通格局50-75 | 破格20-45</p>
+            <p>成格系数：成格1.0 | 半成0.6 | 破格0.3</p>
+            <p>清纯度系数 = 1 - (混杂十神数 × 0.15)</p>
+          </div>
+          <div class="formula-section">
+            <h4>流通指数 = Σ(每步流通强度) × 流通方向系数 × 源头活水系数</h4>
+            <p>生克系数：相生1.0 | 相克-0.6 | 合化1.2 | 冲战-0.4</p>
+            <p>方向系数：顺生1.2 | 逆流0.5 | 环流1.0</p>
+            <p>源头系数：旺相1.2 | 休囚0.7 | 无源0.4</p>
+          </div>
+          <div class="formula-section">
+            <h4>调候指数 = 调候用神得力度 × 寒暖燥湿平衡度</h4>
+            <p>得力度：得令得地1.0 | 失令得地0.6 | 双失0.3</p>
+            <p>平衡度 = 1 - |寒+暖+燥+湿-2| × 0.5</p>
+          </div>
+          <div class="formula-section">
+            <h4>神煞指数 = (吉神权重和 × 0.7) + (凶神化解度 × 0.3)</h4>
+            <p>吉神：天乙+15 | 文昌+12 | 驿马+8 | 桃花+6 | 金舆+10 | 拱禄+12</p>
+            <p>凶神：羊刃-12 | 亡神-8 | 天罗地网-10 | 空亡-6 | 劫煞-8</p>
+          </div>
+          <div class="formula-section">
+            <h4>大运均分 = Σ(每步大运得分) / 步数 × 运势波动系数</h4>
+            <p>每步得分 = 财官×0.35 + 印比×0.30 + 食伤×0.20 + 调候×0.15</p>
+            <p>波动系数 = 1 + (最高-最低)/平均×0.3</p>
+          </div>
+          <div class="formula-section">
+            <h4>紫微加权 = 主星×0.40 + 宫位×0.30 + 四化×0.30</h4>
+            <p>主星：紫微天府90-100 | 杀破狼80-90 | 机月同梁70-85</p>
+            <p>四化：化禄×1.2 + 化权×1.0 + 化科×0.9 + 化忌×(-0.8)</p>
+          </div>
+          <div class="formula-section">
+            <h4>时代系数：改革开放1.2 | 互联网1.4 | AI时代1.5</h4>
+            <h4>地域系数：一线1.3 | 新一线1.2 | 二线1.1 | 三四线0.9</h4>
+          </div>
+          <div class="formula-section highlight">
+            <h4>★ 完整公式汇编已申请知识产权保护 ★</h4>
+            <p>本体系经1042年21代传承人实践验证</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1051,6 +1209,18 @@
   }, { threshold: 0.1 });
   els.forEach(el => io.observe(el));
 })();
+
+// ── 公式详情展开 ──
+function toggleFormulaDetail() {
+  const detail = document.getElementById('formulaDetail');
+  const toggle = document.querySelector('.formula-detail-toggle');
+  detail.classList.toggle('show');
+  if (detail.classList.contains('show')) {
+    toggle.innerHTML = '收起完整公式 &laquo;';
+  } else {
+    toggle.innerHTML = '展开完整公式 &raquo;';
+  }
+}
 </script>
 </body>
 </html>

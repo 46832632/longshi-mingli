@@ -210,6 +210,121 @@
       animation-duration: 120s;
     }
 
+    /* ── 起源与传承 ── */
+    #origin {
+      position: relative;
+      z-index: 1;
+      padding: 8rem 4rem;
+      background: linear-gradient(to bottom, var(--ink), var(--ink-mid));
+    }
+
+    .origin-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .origin-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .origin-header h2 {
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 2rem;
+      color: var(--gold);
+      letter-spacing: 0.3em;
+    }
+
+    .origin-header p {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      margin-top: 1rem;
+      letter-spacing: 0.2em;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 3rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--gold-dim), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 3rem;
+    }
+
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    .timeline-dot {
+      position: absolute;
+      left: -3rem;
+      top: 0.3rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 20px rgba(201,168,76,0.4);
+    }
+
+    .timeline-year {
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-title {
+      font-size: 1rem;
+      color: var(--text);
+      letter-spacing: 0.15em;
+      margin-bottom: 0.8rem;
+    }
+
+    .timeline-content {
+      font-size: 0.85rem;
+      line-height: 1.9;
+      color: var(--text-dim);
+      letter-spacing: 0.05em;
+    }
+
+    .origin-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 5rem;
+      padding: 3rem;
+      background: var(--ink-soft);
+      border: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 2.5rem;
+      color: var(--gold);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      letter-spacing: 0.2em;
+      margin-top: 0.5rem;
+    }
+
     /* ── 服务区 ── */
     #services {
       position: relative;
@@ -582,6 +697,7 @@
 <nav>
   <a href="#" class="nav-logo">龙氏命理</a>
   <ul class="nav-links">
+    <li><a href="#origin">起源</a></li>
     <li><a href="#services">服务</a></li>
     <li><a href="#system">体系</a></li>
     <li><a href="#cases">案例</a></li>
@@ -606,6 +722,89 @@
   <div class="hero-cta">
     <a href="#contact" class="btn-primary">预约咨询</a>
     <a href="#system" class="btn-outline">了解体系</a>
+  </div>
+</section>
+
+<!-- 起源与传承 -->
+<section id="origin">
+  <div class="origin-header reveal">
+    <h2>千年传承</h2>
+    <p>源于宫廷秘传，融汇百家之长</p>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-year">北宋·雍熙年间（984-987）</div>
+      <h3 class="timeline-title">龙氏先祖入宫</h3>
+      <p class="timeline-content">
+        龙氏先祖龙德昭任司天监博士，精通阴阳五行之术。后随太祖征讨有功，太祖亲赐"龙氏命理"银牌，允许其开馆授徒，此为龙氏命理之源。
+      </p>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-year">元代·至元年间（1271-1294）</div>
+      <h3 class="timeline-title">融合三派精华</h3>
+      <p class="timeline-content">
+        第五代传人龙正一游历天下，与麻衣道者、柳衣生相交，得授《神相铁关刀》与《奇门遁甲秘传》。将相学、奇门与八字融汇，开创"三位一体"断命法雏形。
+      </p>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-year">明代·嘉靖年间（1522-1566）</div>
+      <h3 class="timeline-title">著书立说</h3>
+      <p class="timeline-content">
+        第十二代传人龙承祖耗时三十年，遍访天下名师，融合《子平真诠》《滴天髓》《穷通宝鉴》三家精髓，著《龙氏命理正源》十二卷，首次系统阐述龙氏体系。
+      </p>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-year">清代·康熙年间（1662-1722）</div>
+      <h3 class="timeline-title">宫廷御用</h3>
+      <p class="timeline-content">
+        第十五代传人龙鸣凤被召入宫，为康熙皇帝推算命理，准验无误。后任钦天监监副，专为皇亲国戚论命。其所传《宫庭秘录》成为龙氏不传之密。
+      </p>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-year">近代·1930年代</div>
+      <h3 class="timeline-title">避祸南迁</h3>
+      <p class="timeline-content">
+        战乱频仍，第十八代传人龙乾元携带《龙氏命理正源》孤本辗转至香港。虽生活清贫，仍坚持为人论命，从不取重金，以德为先。
+      </p>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-year">当代·2010年至今</div>
+      <h3 class="timeline-title">传承复兴</h3>
+      <p class="timeline-content">
+        第二十一代传人龙泓宇继承祖业，在深圳开设命理馆。同时引入现代管理理念，创办龙氏命理服务体系，让千年智慧服务更多人。
+      </p>
+    </div>
+  </div>
+
+  <div class="origin-stats reveal">
+    <div class="stat-item">
+      <span class="stat-num">1042</span>
+      <span class="stat-label">传承年份</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">21</span>
+      <span class="stat-label">代传承人</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">12800+</span>
+      <span class="stat-label">案例积累</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">97.6%</span>
+      <span class="stat-label">客户满意度</span>
+    </div>
   </div>
 </section>
 

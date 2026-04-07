@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>榫欐皬鍛界悊 路 娲炶澶╂満</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --gold-dim: #7a6030;
+      --ink: #0a0a0f;
+      --ink-mid: #12121a;
+      --ink-soft: #1c1c28;
+      --text: #e8e0d0;
+      --text-dim: #9a9080;
+      --red: #8b2020;
+      --red-bright: #c0392b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--ink);
+      color: var(--text);
+      font-family: 'Noto Serif SC', 'STSong', serif;
+      overflow-x: hidden;
+      cursor: default;
+    }
+
+    /* 鈹€鈹€ 鏄熺┖鑳屾櫙 鈹€鈹€ */
+    #starfield {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* 鈹€鈹€ 椤堕儴瀵艰埅 鈹€鈹€ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 4rem;
+      background: linear-gradient(to bottom, rgba(10,10,15,0.95), transparent);
+      backdrop-filter: blur(4px);
+    }
+
+    .nav-logo {
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      letter-spacing: 0.3em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    /* 鈹€鈹€ 鑻遍泟鍖?鈹€鈹€ */
+    #hero {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid var(--gold-dim);
+      color: var(--gold);
+      font-size: 0.75rem;
+      letter-spacing: 0.4em;
+      padding: 0.4rem 1.2rem;
+      margin-bottom: 2rem;
+      animation: fadeDown 1s ease both;
+    }
+
+    .hero-title {
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      color: var(--gold);
+      letter-spacing: 0.25em;
+      line-height: 1.1;
+      text-shadow: 0 0 60px rgba(201,168,76,0.4);
+      animation: fadeDown 1s 0.2s ease both;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--text-dim);
+      letter-spacing: 0.3em;
+      margin-top: 1rem;
+      animation: fadeDown 1s 0.4s ease both;
+    }
+
+    .hero-divider {
+      width: 120px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 2.5rem auto;
+      animation: fadeDown 1s 0.5s ease both;
+    }
+
+    .hero-desc {
+      max-width: 560px;
+      font-size: 1rem;
+      line-height: 2;
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+      animation: fadeDown 1s 0.6s ease both;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 3rem;
+      animation: fadeDown 1s 0.8s ease both;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+      color: var(--ink);
+      padding: 0.85rem 2.5rem;
+      font-family: 'Noto Serif SC', serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.2em;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201,168,76,0.3);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--gold-dim);
+      color: var(--gold);
+      padding: 0.85rem 2.5rem;
+      font-family: 'Noto Serif SC', serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.2em;
+      background: transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.08);
+      transform: translateY(-2px);
+    }
+
+    /* 鈹€鈹€ 鍏崷瑁呴グ 鈹€鈹€ */
+    .bagua-ring {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border: 1px solid rgba(201,168,76,0.08);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: rotateSlow 60s linear infinite;
+      pointer-events: none;
+    }
+
+    .bagua-ring:nth-child(2) {
+      width: 700px;
+      height: 700px;
+      border-color: rgba(201,168,76,0.05);
+      animation-duration: 90s;
+      animation-direction: reverse;
+    }
+
+    .bagua-ring:nth-child(3) {
+      width: 900px;
+      height: 900px;
+      border-color: rgba(201,168,76,0.03);
+      animation-duration: 120s;
+    }
+
+    /* 鈹€鈹€ 鏈嶅姟鍖?鈹€鈹€ */
+    #services {
+      position: relative;
+      z-index: 1;
+      padding: 8rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    .section-tag {
+      font-size: 0.75rem;
+      letter-spacing: 0.5em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--text);
+      letter-spacing: 0.2em;
+    }
+
+    .section-line {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 1.5rem auto 0;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--ink-soft);
+      border: 1px solid rgba(201,168,76,0.12);
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 0;
+      background: var(--gold);
+      transition: height 0.4s;
+    }
+
+    .service-card:hover {
+      border-color: rgba(201,168,76,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    .service-card:hover::before { height: 100%; }
+
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    .service-name {
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 1.3rem;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      margin-bottom: 0.8rem;
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      line-height: 1.9;
+      color: var(--text-dim);
+      letter-spacing: 0.05em;
+    }
+
+    /* 鈹€鈹€ 浣撶郴浠嬬粛 鈹€鈹€ */
+    #system {
+      position: relative;
+      z-index: 1;
+      padding: 8rem 4rem;
+      background: var(--ink-mid);
+    }
+
+    .system-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .system-text .section-header { text-align: left; }
+    .system-text .section-line { margin-left: 0; }
+
+    .system-text p {
+      font-size: 0.95rem;
+      line-height: 2.2;
+      color: var(--text-dim);
+      margin-top: 1.5rem;
+      letter-spacing: 0.06em;
+    }
+
+    .formula-box {
+      background: var(--ink-soft);
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    .formula-title {
+      font-size: 0.75rem;
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .formula-text {
+      font-size: 0.85rem;
+      line-height: 2;
+      color: var(--text-dim);
+      font-family: monospace;
+    }
+
+    .system-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .axis-item {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      border: 1px solid rgba(201,168,76,0.1);
+      background: var(--ink-soft);
+      transition: all 0.3s;
+    }
+
+    .axis-item:hover {
+      border-color: rgba(201,168,76,0.3);
+      background: rgba(201,168,76,0.04);
+    }
+
+    .axis-num {
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 2rem;
+      color: var(--gold-dim);
+      min-width: 2.5rem;
+    }
+
+    .axis-info h4 {
+      font-size: 1rem;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      margin-bottom: 0.3rem;
+    }
+
+    .axis-info p {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      letter-spacing: 0.05em;
+      margin: 0;
+    }
+
+    /* 鈹€鈹€ 妗堜緥鍖?鈹€鈹€ */
+    #cases {
+      position: relative;
+      z-index: 1;
+      padding: 8rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .case-card {
+      background: var(--ink-soft);
+      border: 1px solid rgba(201,168,76,0.1);
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+
+    .case-card:hover {
+      border-color: rgba(201,168,76,0.25);
+      transform: translateY(-3px);
+    }
+
+    .case-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .case-type {
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      border: 1px solid var(--gold-dim);
+      padding: 0.2rem 0.7rem;
+    }
+
+    .case-stars {
+      color: var(--gold);
+      font-size: 0.85rem;
+    }
+
+    .case-title {
+      font-size: 1.05rem;
+      color: var(--text);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.8rem;
+    }
+
+    .case-content {
+      font-size: 0.88rem;
+      line-height: 1.9;
+      color: var(--text-dim);
+    }
+
+    /* 鈹€鈹€ 鑱旂郴鍖?鈹€鈹€ */
+    #contact {
+      position: relative;
+      z-index: 1;
+      padding: 8rem 4rem;
+      background: var(--ink-mid);
+      text-align: center;
+    }
+
+    .contact-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .contact-inner p {
+      font-size: 1rem;
+      line-height: 2;
+      color: var(--text-dim);
+      margin-top: 2rem;
+      letter-spacing: 0.08em;
+    }
+
+    .contact-cards {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-card {
+      background: var(--ink-soft);
+      border: 1px solid rgba(201,168,76,0.15);
+      padding: 2rem 2.5rem;
+      min-width: 180px;
+      transition: all 0.3s;
+    }
+
+    .contact-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    .contact-card-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+
+    .contact-card-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      color: var(--text-dim);
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-card-value {
+      font-size: 0.95rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+    }
+
+    /* 鈹€鈹€ 椤佃剼 鈹€鈹€ */
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 3rem 4rem;
+      border-top: 1px solid rgba(201,168,76,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+    }
+
+    .footer-logo {
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 1.2rem;
+      color: var(--gold-dim);
+      letter-spacing: 0.3em;
+    }
+
+    /* 鈹€鈹€ 鍔ㄧ敾 鈹€鈹€ */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes rotateSlow {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to   { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50%       { opacity: 1; }
+    }
+
+    /* 鈹€鈹€ 婊氬姩鏄剧幇 鈹€鈹€ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* 鈹€鈹€ 鍝嶅簲寮?鈹€鈹€ */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      #services, #cases, #contact { padding: 5rem 1.5rem; }
+      #system { padding: 5rem 1.5rem; }
+      .system-inner { grid-template-columns: 1fr; gap: 3rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- 鏄熺┖鐢诲竷 -->
+<canvas id="starfield"></canvas>
+
+<!-- 瀵艰埅 -->
+<nav>
+  <a href="#" class="nav-logo">榫欐皬鍛界悊</a>
+  <ul class="nav-links">
+    <li><a href="#services">鏈嶅姟</a></li>
+    <li><a href="#system">浣撶郴</a></li>
+    <li><a href="#cases">妗堜緥</a></li>
+    <li><a href="#contact">鑱旂郴</a></li>
+  </ul>
+</nav>
+
+<!-- 鑻遍泟鍖?-->
+<section id="hero">
+  <div class="bagua-ring"></div>
+  <div class="bagua-ring"></div>
+  <div class="bagua-ring"></div>
+
+  <div class="hero-badge">LONG'S MINGLI SYSTEM 路 榫欐皬鍛界悊瀛?/div>
+  <h1 class="hero-title">榫欐皬鍛界悊</h1>
+  <p class="hero-sub">娲炶澶╂満 路 鎶婃彙鍛借繍</p>
+  <div class="hero-divider"></div>
+  <p class="hero-desc">
+    铻嶅悎鍏瓧鍛界悊銆佺传寰枟鏁般€佸叚鐖诲崰鍗溿€佸闂ㄩ亖鐢层€佺巹绌洪姘淬€佺浉瀛︿簬涓€浣擄紝
+    浠ョ幇浠ｈ瑙掕癄閲婂崈骞存櫤鎱э紝鍔╂偍璁ょ煡鍛借繍銆佹妸鎻℃満閬囥€佹敼鍠勪汉鐢熴€?  </p>
+  <div class="hero-cta">
+    <a href="#contact" class="btn-primary">棰勭害鍜ㄨ</a>
+    <a href="#system" class="btn-outline">浜嗚В浣撶郴</a>
+  </div>
+</section>
+
+<!-- 鏈嶅姟鍖?-->
+<section id="services">
+  <div class="section-header reveal">
+    <p class="section-tag">Our Services</p>
+    <h2 class="section-title">涓撲笟鏈嶅姟</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <span class="service-icon">鈽?/span>
+      <h3 class="service-name">鍏瓧鍛界悊</h3>
+      <p class="service-desc">浠ュ嚭鐢熷勾鏈堟棩鏃朵负鍩虹锛屽垎鏋愭牸灞€銆佺敤绁炪€佸ぇ杩愶紝绮惧噯鍒ゆ柇浜虹敓璧板娍銆佷簨涓氳储杩愩€佸濮诲仴搴枫€?/p>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-icon">鉁?/span>
+      <h3 class="service-name">绱井鏂楁暟</h3>
+      <p class="service-desc">浠ュ崄鍥涗富鏄熴€佸崄浜屽浣嶃€佸洓鍖栭鏄熶负鏍稿績锛屼粠绌洪棿缁村害瑙ｆ瀽鍛借繍鏍煎眬涓庝汉鐢熻建杩广€?/p>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-icon">鍗?/span>
+      <h3 class="service-name">鍏埢鍗犲崪</h3>
+      <p class="service-desc">浠ュ叚鍗佸洓鍗︿负鍩虹锛岄€氳繃鍔ㄥ彉銆佹椇琛般€佸垜鍐诧紝绮惧噯棰勬祴鍏蜂綋浜嬮」鐨勫彂灞曡蛋鍚戜笌搴旀湡銆?/p>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-icon">馃Л</span>
+      <h3 class="service-name">濂囬棬閬佺敳</h3>
+      <p class="service-desc">浠ヤ節瀹叓鍗︺€佷笁濂囧叚浠€佸叓闂ㄤ節鏄熶负鏍稿績锛岀敤浜庢嫨鏃堕€夊悜銆佽秼鍚夐伩鍑躲€佸喅绛栬緟鍔┿€?/p>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-icon">馃彲</span>
+      <h3 class="service-name">鐜勭┖椋庢按</h3>
+      <p class="service-desc">浠ラ鏄熶節瀹€佸洓澶ф牸灞€涓烘牳蹇冿紝璋冩暣灞呬綇涓庡伐浣滅幆澧冿紝鏀瑰杽涓佽储涓ゆ椇鐨勭┖闂磋兘閲忋€?/p>
+    </div>
+    <div class="service-card reveal">
+      <span class="service-icon">馃憗</span>
+      <h3 class="service-name">鐩稿閴村畾</h3>
+      <p class="service-desc">浠ラ潰鐩镐笁鍋滀簲瀹樸€佹墜鐩镐笁澶х嚎鍏笜涓哄熀纭€锛岃緟鍔╁懡鐞嗗垎鏋愶紝鍏ㄩ潰鎶婃彙鍛借繍鐗瑰緛銆?/p>
+    </div>
+  </div>
+</section>
+
+<!-- 浣撶郴浠嬬粛 -->
+<section id="system">
+  <div class="system-inner">
+    <div class="system-text">
+      <div class="section-header reveal">
+        <p class="section-tag">Our System</p>
+        <h2 class="section-title">榫欐皬鍛界悊瀛︿綋绯?/h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="reveal">
+        榫欐皬鍛界悊瀛︽槸铻嶅悎浼犵粺浜斿ぇ鏈暟銆佷互鐜颁唬閫昏緫閲嶆瀯鐨勫懡鐞嗕綋绯伙紝
+        浠ャ€屼笁浣嶄竴浣撱€嶄负鏍稿績鏋舵瀯锛屼粠鏃堕棿銆佺┖闂淬€佸嵆鏃朵笁涓淮搴﹀叏闈㈣В鏋愬懡杩愩€?      </p>
+      <p class="reveal">
+        鍛借繍涓嶆槸娉ㄥ畾鐨勶紝鑰屾槸鍙互琚鐭ャ€佺悊瑙ｃ€佹敼鍠勭殑銆?        閫氳繃绯荤粺鍒嗘瀽锛屽府鍔╂偍鍙戠幇澶╄祴浼樺娍銆佹妸鎻′汉鐢熸満閬囥€佽閬挎綔鍦ㄩ闄┿€?      </p>
+      <div class="formula-box reveal">
+        <p class="formula-title">CORE FORMULA 路 鏍稿績鍏紡</p>
+        <p class="formula-text">
+          鍛借繍鎸囨暟 = 鏍煎眬脳0.30 + 娴侀€毭?.20<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 璋冨€櫭?.15 + 绱井脳0.10<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 椋庢按脳0.10 + 鐩歌矊脳0.05<br><br>
+          鎴愬姛鎸囨暟 = 澶╄祴脳0.20 + 鍔姏脳0.20<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 鏃舵満脳0.20 + 浜鸿剦脳0.15
+        </p>
+      </div>
+    </div>
+
+    <div class="system-visual reveal">
+      <div class="axis-item">
+        <span class="axis-num">涓€</span>
+        <div class="axis-info">
+          <h4>鏃堕棿杞?路 鍏瓧鍛界悊</h4>
+          <p>瑙ｅ喅銆屾槸浠€涔堛€嶁€?鏍煎眬璁恒€佹祦閫氳銆佽皟鍊欒</p>
+        </div>
+      </div>
+      <div class="axis-item">
+        <span class="axis-num">浜?/span>
+        <div class="axis-info">
+          <h4>绌洪棿杞?路 绱井鏂楁暟</h4>
+          <p>瑙ｅ喅銆屽湪鍝噷銆嶁€?鏄熸洔璁恒€佸浣嶈銆佸洓鍖栬</p>
+        </div>
+      </div>
+      <div class="axis-item">
+        <span class="axis-num">涓?/span>
+        <div class="axis-info">
+          <h4>鍗虫椂杞?路 鍏埢鍗犲崪</h4>
+          <p>瑙ｅ喅銆屼細濡備綍銆嶁€?鍗﹁薄璁恒€佸姩鍙樿銆佸簲鏈熻</p>
+        </div>
+      </div>
+      <div class="axis-item">
+        <span class="axis-num">鍥?/span>
+        <div class="axis-info">
+          <h4>鐜杞?路 鐜勭┖椋庢按</h4>
+          <p>瑙ｅ喅銆屾€庝箞鏀广€嶁€?椋炴槦璁恒€佹牸灞€璁恒€佽皟鏁存硶</p>
+        </div>
+      </div>
+      <div class="axis-item">
+        <span class="axis-num">浜?/span>
+        <div class="axis-info">
+          <h4>褰㈣薄杞?路 鐩稿閴村畾</h4>
+          <p>瑙ｅ喅銆岀湅寰楄銆嶁€?闈㈢浉璁恒€佹墜鐩歌銆佹皵鑹茶</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 妗堜緥鍖?-->
+<section id="cases">
+  <div class="section-header reveal">
+    <p class="section-tag">Case Studies</p>
+    <h2 class="section-title">瀹炴垬妗堜緥</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="cases-grid">
+    <div class="case-card reveal">
+      <div class="case-meta">
+        <span class="case-type">鑱屼笟瑙勫垝</span>
+        <span class="case-stars">鈽呪槄鈽呪槄鈽?/span>
+      </div>
+      <h3 class="case-title">涓冩潃鏍肩敺鍛?路 浠曢€旀檵鍗囧垎鏋?/h3>
+      <p class="case-content">鏉€鍗扮浉鐢熸牸灞€锛屽畼鏄熸湁鍔涳紝寤鸿鎶婃彙鏈潵涓夊勾浜嬩笟涓婂崌鏈燂紝涓诲姩浜夊彇绠＄悊宀椾綅锛屽ぇ杩愰厤鍚堜笅鏅嬪崌鍙湡銆?/p>
+    </div>
+    <div class="case-card reveal">
+      <div class="case-meta">
+        <span class="case-type">濠氬Щ鎰熸儏</span>
+        <span class="case-stars">鈽呪槄鈽呪槄鈽?/span>
+      </div>
+      <h3 class="case-title">姝ｅ畼鏍煎コ鍛?路 缁撳鏃舵満鍒ゆ柇</h3>
+      <p class="case-content">瀹樻槦褰撲护锛屽ぉ鍠滄槦鍔紝绮惧噯鍒ゆ柇褰撳勾涓嬪崐骞翠负缁撳鍚夊勾锛屽悗鏉ヨ鑰呭鏈熷畬濠氾紝鍙嶉鍑嗙‘銆?/p>
+    </div>
+    <div class="case-card reveal">
+      <div class="case-meta">
+        <span class="case-type">鎶曡祫鍐崇瓥</span>
+        <span class="case-stars">鈽呪槄鈽呪槄鈽?/span>
+      </div>
+      <h3 class="case-title">椋熺鐢熻储鏍?路 鍒涗笟鏃舵満鍒嗘瀽</h3>
+      <p class="case-content">椋熺鐢熻储锛岄€傚悎鑷敱鑱屼笟锛岀粨鍚堟祦骞磋储鏄熷綋浠わ紝寤鸿鐗瑰畾骞翠唤鍒涗笟锛岃閬夸簡閿欒鏃舵満鐨勯闄┿€?/p>
+    </div>
+  </div>
+</section>
+
+<!-- 鑱旂郴鍖?-->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-header reveal">
+      <p class="section-tag">Contact Us</p>
+      <h2 class="section-title">棰勭害鍜ㄨ</h2>
+      <div class="section-line"></div>
+    </div>
+    <p class="reveal">
+      姣忎竴浠藉懡鐩橀兘鏄嫭涓€鏃犱簩鐨勪汉鐢熷瘑鐮併€?br>
+      鎻愪緵鍑虹敓骞存湀鏃ユ椂锛岃鎴戜滑涓烘偍瑙ｈ澶╂満锛屾妸鎻″懡杩愩€?    </p>
+    <div class="contact-cards reveal">
+      <div class="contact-card">
+        <div class="contact-card-icon">馃挰</div>
+        <p class="contact-card-label">寰俊鍜ㄨ</p>
+        <p class="contact-card-value">longshi_mingli</p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">馃摟</div>
+        <p class="contact-card-label">閭欢棰勭害</p>
+        <p class="contact-card-value">info@longshi.com</p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">馃摓</div>
+        <p class="contact-card-label">鐢佃瘽鍜ㄨ</p>
+        <p class="contact-card-value">棰勭害鍒?/p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 椤佃剼 -->
+<footer>
+  <span class="footer-logo">榫欐皬鍛界悊</span>
+  <p>漏 2025 榫欐皬鍛界悊瀛?路 LONG'S MINGLI SYSTEM 路 娲炶澶╂満 鎶婃彙鍛借繍</p>
+  <p>鍛借繍涓嶆槸娉ㄥ畾鐨勶紝鑰屾槸鍙互琚鐭ャ€佺悊瑙ｃ€佹敼鍠勭殑</p>
+</footer>
+
+<script>
+// 鈹€鈹€ 鏄熺┖鑳屾櫙 鈹€鈹€
+(function() {
+  const canvas = document.getElementById('starfield');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  function initStars() {
+    stars = [];
+    for (let i = 0; i < 200; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.2 + 0.2,
+        alpha: Math.random(),
+        speed: Math.random() * 0.005 + 0.002,
+        phase: Math.random() * Math.PI * 2
+      });
+    }
+  }
+
+  function drawStars(t) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(s => {
+      const a = 0.15 + 0.6 * (0.5 + 0.5 * Math.sin(t * s.speed + s.phase));
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(201,168,76,${a})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(drawStars);
+  }
+
+  window.addEventListener('resize', () => { resize(); initStars(); });
+  resize();
+  initStars();
+  requestAnimationFrame(drawStars);
+})();
+
+// 鈹€鈹€ 婊氬姩鏄剧幇 鈹€鈹€
+(function() {
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>

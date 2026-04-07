@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>榫欐皬鍛界悊 路 娲炶澶╂満</title>
+  <title>龙氏命理 · 洞见天机</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
   <style>
@@ -32,7 +32,7 @@
       cursor: default;
     }
 
-    /* 鈹€鈹€ 鏄熺┖鑳屾櫙 鈹€鈹€ */
+    /* ── 星空背景 ── */
     #starfield {
       position: fixed;
       inset: 0;
@@ -40,7 +40,7 @@
       pointer-events: none;
     }
 
-    /* 鈹€鈹€ 椤堕儴瀵艰埅 鈹€鈹€ */
+    /* ── 顶部导航 ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -77,7 +77,7 @@
 
     .nav-links a:hover { color: var(--gold); }
 
-    /* 鈹€鈹€ 鑻遍泟鍖?鈹€鈹€ */
+    /* ── 英雄区 ── */
     #hero {
       position: relative;
       z-index: 1;
@@ -181,7 +181,7 @@
       transform: translateY(-2px);
     }
 
-    /* 鈹€鈹€ 鍏崷瑁呴グ 鈹€鈹€ */
+    /* ── 八卦装饰 ── */
     .bagua-ring {
       position: absolute;
       width: 500px;
@@ -210,7 +210,7 @@
       animation-duration: 120s;
     }
 
-    /* 鈹€鈹€ 鏈嶅姟鍖?鈹€鈹€ */
+    /* ── 服务区 ── */
     #services {
       position: relative;
       z-index: 1;
@@ -300,7 +300,7 @@
       letter-spacing: 0.05em;
     }
 
-    /* 鈹€鈹€ 浣撶郴浠嬬粛 鈹€鈹€ */
+    /* ── 体系介绍 ── */
     #system {
       position: relative;
       z-index: 1;
@@ -391,7 +391,7 @@
       margin: 0;
     }
 
-    /* 鈹€鈹€ 妗堜緥鍖?鈹€鈹€ */
+    /* ── 案例区 ── */
     #cases {
       position: relative;
       z-index: 1;
@@ -452,7 +452,7 @@
       color: var(--text-dim);
     }
 
-    /* 鈹€鈹€ 鑱旂郴鍖?鈹€鈹€ */
+    /* ── 联系区 ── */
     #contact {
       position: relative;
       z-index: 1;
@@ -510,7 +510,7 @@
       letter-spacing: 0.1em;
     }
 
-    /* 鈹€鈹€ 椤佃剼 鈹€鈹€ */
+    /* ── 页脚 ── */
     footer {
       position: relative;
       z-index: 1;
@@ -534,7 +534,7 @@
       letter-spacing: 0.3em;
     }
 
-    /* 鈹€鈹€ 鍔ㄧ敾 鈹€鈹€ */
+    /* ── 动画 ── */
     @keyframes fadeDown {
       from { opacity: 0; transform: translateY(-20px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -550,7 +550,7 @@
       50%       { opacity: 1; }
     }
 
-    /* 鈹€鈹€ 婊氬姩鏄剧幇 鈹€鈹€ */
+    /* ── 滚动显现 ── */
     .reveal {
       opacity: 0;
       transform: translateY(30px);
@@ -562,7 +562,7 @@
       transform: translateY(0);
     }
 
-    /* 鈹€鈹€ 鍝嶅簲寮?鈹€鈹€ */
+    /* ── 响应式 ── */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
@@ -575,223 +575,228 @@
 </head>
 <body>
 
-<!-- 鏄熺┖鐢诲竷 -->
+<!-- 星空画布 -->
 <canvas id="starfield"></canvas>
 
-<!-- 瀵艰埅 -->
+<!-- 导航 -->
 <nav>
-  <a href="#" class="nav-logo">榫欐皬鍛界悊</a>
+  <a href="#" class="nav-logo">龙氏命理</a>
   <ul class="nav-links">
-    <li><a href="#services">鏈嶅姟</a></li>
-    <li><a href="#system">浣撶郴</a></li>
-    <li><a href="#cases">妗堜緥</a></li>
-    <li><a href="#contact">鑱旂郴</a></li>
+    <li><a href="#services">服务</a></li>
+    <li><a href="#system">体系</a></li>
+    <li><a href="#cases">案例</a></li>
+    <li><a href="#contact">联系</a></li>
   </ul>
 </nav>
 
-<!-- 鑻遍泟鍖?-->
+<!-- 英雄区 -->
 <section id="hero">
   <div class="bagua-ring"></div>
   <div class="bagua-ring"></div>
   <div class="bagua-ring"></div>
 
-  <div class="hero-badge">LONG'S MINGLI SYSTEM 路 榫欐皬鍛界悊瀛?/div>
-  <h1 class="hero-title">榫欐皬鍛界悊</h1>
-  <p class="hero-sub">娲炶澶╂満 路 鎶婃彙鍛借繍</p>
+  <div class="hero-badge">LONG'S MINGLI SYSTEM · 龙氏命理学</div>
+  <h1 class="hero-title">龙氏命理</h1>
+  <p class="hero-sub">洞见天机 · 把握命运</p>
   <div class="hero-divider"></div>
   <p class="hero-desc">
-    铻嶅悎鍏瓧鍛界悊銆佺传寰枟鏁般€佸叚鐖诲崰鍗溿€佸闂ㄩ亖鐢层€佺巹绌洪姘淬€佺浉瀛︿簬涓€浣擄紝
-    浠ョ幇浠ｈ瑙掕癄閲婂崈骞存櫤鎱э紝鍔╂偍璁ょ煡鍛借繍銆佹妸鎻℃満閬囥€佹敼鍠勪汉鐢熴€?  </p>
+    融合八字命理、紫微斗数、六爻占卜、奇门遁甲、玄空风水、相学于一体，
+    以现代视角诠释千年智慧，助您认知命运、把握机遇、改善人生。
+  </p>
   <div class="hero-cta">
-    <a href="#contact" class="btn-primary">棰勭害鍜ㄨ</a>
-    <a href="#system" class="btn-outline">浜嗚В浣撶郴</a>
+    <a href="#contact" class="btn-primary">预约咨询</a>
+    <a href="#system" class="btn-outline">了解体系</a>
   </div>
 </section>
 
-<!-- 鏈嶅姟鍖?-->
+<!-- 服务区 -->
 <section id="services">
   <div class="section-header reveal">
     <p class="section-tag">Our Services</p>
-    <h2 class="section-title">涓撲笟鏈嶅姟</h2>
+    <h2 class="section-title">专业服务</h2>
     <div class="section-line"></div>
   </div>
 
   <div class="services-grid">
     <div class="service-card reveal">
-      <span class="service-icon">鈽?/span>
-      <h3 class="service-name">鍏瓧鍛界悊</h3>
-      <p class="service-desc">浠ュ嚭鐢熷勾鏈堟棩鏃朵负鍩虹锛屽垎鏋愭牸灞€銆佺敤绁炪€佸ぇ杩愶紝绮惧噯鍒ゆ柇浜虹敓璧板娍銆佷簨涓氳储杩愩€佸濮诲仴搴枫€?/p>
+      <span class="service-icon">☯</span>
+      <h3 class="service-name">八字命理</h3>
+      <p class="service-desc">以出生年月日时为基础，分析格局、用神、大运，精准判断人生走势、事业财运、婚姻健康。</p>
     </div>
     <div class="service-card reveal">
-      <span class="service-icon">鉁?/span>
-      <h3 class="service-name">绱井鏂楁暟</h3>
-      <p class="service-desc">浠ュ崄鍥涗富鏄熴€佸崄浜屽浣嶃€佸洓鍖栭鏄熶负鏍稿績锛屼粠绌洪棿缁村害瑙ｆ瀽鍛借繍鏍煎眬涓庝汉鐢熻建杩广€?/p>
+      <span class="service-icon">✦</span>
+      <h3 class="service-name">紫微斗数</h3>
+      <p class="service-desc">以十四主星、十二宫位、四化飞星为核心，从空间维度解析命运格局与人生轨迹。</p>
     </div>
     <div class="service-card reveal">
-      <span class="service-icon">鍗?/span>
-      <h3 class="service-name">鍏埢鍗犲崪</h3>
-      <p class="service-desc">浠ュ叚鍗佸洓鍗︿负鍩虹锛岄€氳繃鍔ㄥ彉銆佹椇琛般€佸垜鍐诧紝绮惧噯棰勬祴鍏蜂綋浜嬮」鐨勫彂灞曡蛋鍚戜笌搴旀湡銆?/p>
+      <span class="service-icon">卦</span>
+      <h3 class="service-name">六爻占卜</h3>
+      <p class="service-desc">以六十四卦为基础，通过动变、旺衰、刑冲，精准预测具体事项的发展走向与应期。</p>
     </div>
     <div class="service-card reveal">
-      <span class="service-icon">馃Л</span>
-      <h3 class="service-name">濂囬棬閬佺敳</h3>
-      <p class="service-desc">浠ヤ節瀹叓鍗︺€佷笁濂囧叚浠€佸叓闂ㄤ節鏄熶负鏍稿績锛岀敤浜庢嫨鏃堕€夊悜銆佽秼鍚夐伩鍑躲€佸喅绛栬緟鍔┿€?/p>
+      <span class="service-icon">🧭</span>
+      <h3 class="service-name">奇门遁甲</h3>
+      <p class="service-desc">以九宫八卦、三奇六仪、八门九星为核心，用于择时选向、趋吉避凶、决策辅助。</p>
     </div>
     <div class="service-card reveal">
-      <span class="service-icon">馃彲</span>
-      <h3 class="service-name">鐜勭┖椋庢按</h3>
-      <p class="service-desc">浠ラ鏄熶節瀹€佸洓澶ф牸灞€涓烘牳蹇冿紝璋冩暣灞呬綇涓庡伐浣滅幆澧冿紝鏀瑰杽涓佽储涓ゆ椇鐨勭┖闂磋兘閲忋€?/p>
+      <span class="service-icon">🏯</span>
+      <h3 class="service-name">玄空风水</h3>
+      <p class="service-desc">以飞星九宫、四大格局为核心，调整居住与工作环境，改善丁财两旺的空间能量。</p>
     </div>
     <div class="service-card reveal">
-      <span class="service-icon">馃憗</span>
-      <h3 class="service-name">鐩稿閴村畾</h3>
-      <p class="service-desc">浠ラ潰鐩镐笁鍋滀簲瀹樸€佹墜鐩镐笁澶х嚎鍏笜涓哄熀纭€锛岃緟鍔╁懡鐞嗗垎鏋愶紝鍏ㄩ潰鎶婃彙鍛借繍鐗瑰緛銆?/p>
+      <span class="service-icon">👁</span>
+      <h3 class="service-name">相学鉴定</h3>
+      <p class="service-desc">以面相三停五官、手相三大线八丘为基础，辅助命理分析，全面把握命运特征。</p>
     </div>
   </div>
 </section>
 
-<!-- 浣撶郴浠嬬粛 -->
+<!-- 体系介绍 -->
 <section id="system">
   <div class="system-inner">
     <div class="system-text">
       <div class="section-header reveal">
         <p class="section-tag">Our System</p>
-        <h2 class="section-title">榫欐皬鍛界悊瀛︿綋绯?/h2>
+        <h2 class="section-title">龙氏命理学体系</h2>
         <div class="section-line"></div>
       </div>
       <p class="reveal">
-        榫欐皬鍛界悊瀛︽槸铻嶅悎浼犵粺浜斿ぇ鏈暟銆佷互鐜颁唬閫昏緫閲嶆瀯鐨勫懡鐞嗕綋绯伙紝
-        浠ャ€屼笁浣嶄竴浣撱€嶄负鏍稿績鏋舵瀯锛屼粠鏃堕棿銆佺┖闂淬€佸嵆鏃朵笁涓淮搴﹀叏闈㈣В鏋愬懡杩愩€?      </p>
+        龙氏命理学是融合传统五大术数、以现代逻辑重构的命理体系，
+        以「三位一体」为核心架构，从时间、空间、即时三个维度全面解析命运。
+      </p>
       <p class="reveal">
-        鍛借繍涓嶆槸娉ㄥ畾鐨勶紝鑰屾槸鍙互琚鐭ャ€佺悊瑙ｃ€佹敼鍠勭殑銆?        閫氳繃绯荤粺鍒嗘瀽锛屽府鍔╂偍鍙戠幇澶╄祴浼樺娍銆佹妸鎻′汉鐢熸満閬囥€佽閬挎綔鍦ㄩ闄┿€?      </p>
+        命运不是注定的，而是可以被认知、理解、改善的。
+        通过系统分析，帮助您发现天赋优势、把握人生机遇、规避潜在风险。
+      </p>
       <div class="formula-box reveal">
-        <p class="formula-title">CORE FORMULA 路 鏍稿績鍏紡</p>
+        <p class="formula-title">CORE FORMULA · 核心公式</p>
         <p class="formula-text">
-          鍛借繍鎸囨暟 = 鏍煎眬脳0.30 + 娴侀€毭?.20<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 璋冨€櫭?.15 + 绱井脳0.10<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 椋庢按脳0.10 + 鐩歌矊脳0.05<br><br>
-          鎴愬姛鎸囨暟 = 澶╄祴脳0.20 + 鍔姏脳0.20<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 鏃舵満脳0.20 + 浜鸿剦脳0.15
+          命运指数 = 格局×0.30 + 流通×0.20<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 调候×0.15 + 紫微×0.10<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 风水×0.10 + 相貌×0.05<br><br>
+          成功指数 = 天赋×0.20 + 努力×0.20<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 时机×0.20 + 人脉×0.15
         </p>
       </div>
     </div>
 
     <div class="system-visual reveal">
       <div class="axis-item">
-        <span class="axis-num">涓€</span>
+        <span class="axis-num">一</span>
         <div class="axis-info">
-          <h4>鏃堕棿杞?路 鍏瓧鍛界悊</h4>
-          <p>瑙ｅ喅銆屾槸浠€涔堛€嶁€?鏍煎眬璁恒€佹祦閫氳銆佽皟鍊欒</p>
+          <h4>时间轴 · 八字命理</h4>
+          <p>解决「是什么」— 格局论、流通论、调候论</p>
         </div>
       </div>
       <div class="axis-item">
-        <span class="axis-num">浜?/span>
+        <span class="axis-num">二</span>
         <div class="axis-info">
-          <h4>绌洪棿杞?路 绱井鏂楁暟</h4>
-          <p>瑙ｅ喅銆屽湪鍝噷銆嶁€?鏄熸洔璁恒€佸浣嶈銆佸洓鍖栬</p>
+          <h4>空间轴 · 紫微斗数</h4>
+          <p>解决「在哪里」— 星曜论、宫位论、四化论</p>
         </div>
       </div>
       <div class="axis-item">
-        <span class="axis-num">涓?/span>
+        <span class="axis-num">三</span>
         <div class="axis-info">
-          <h4>鍗虫椂杞?路 鍏埢鍗犲崪</h4>
-          <p>瑙ｅ喅銆屼細濡備綍銆嶁€?鍗﹁薄璁恒€佸姩鍙樿銆佸簲鏈熻</p>
+          <h4>即时轴 · 六爻占卜</h4>
+          <p>解决「会如何」— 卦象论、动变论、应期论</p>
         </div>
       </div>
       <div class="axis-item">
-        <span class="axis-num">鍥?/span>
+        <span class="axis-num">四</span>
         <div class="axis-info">
-          <h4>鐜杞?路 鐜勭┖椋庢按</h4>
-          <p>瑙ｅ喅銆屾€庝箞鏀广€嶁€?椋炴槦璁恒€佹牸灞€璁恒€佽皟鏁存硶</p>
+          <h4>环境轴 · 玄空风水</h4>
+          <p>解决「怎么改」— 飞星论、格局论、调整法</p>
         </div>
       </div>
       <div class="axis-item">
-        <span class="axis-num">浜?/span>
+        <span class="axis-num">五</span>
         <div class="axis-info">
-          <h4>褰㈣薄杞?路 鐩稿閴村畾</h4>
-          <p>瑙ｅ喅銆岀湅寰楄銆嶁€?闈㈢浉璁恒€佹墜鐩歌銆佹皵鑹茶</p>
+          <h4>形象轴 · 相学鉴定</h4>
+          <p>解决「看得见」— 面相论、手相论、气色论</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 妗堜緥鍖?-->
+<!-- 案例区 -->
 <section id="cases">
   <div class="section-header reveal">
     <p class="section-tag">Case Studies</p>
-    <h2 class="section-title">瀹炴垬妗堜緥</h2>
+    <h2 class="section-title">实战案例</h2>
     <div class="section-line"></div>
   </div>
 
   <div class="cases-grid">
     <div class="case-card reveal">
       <div class="case-meta">
-        <span class="case-type">鑱屼笟瑙勫垝</span>
-        <span class="case-stars">鈽呪槄鈽呪槄鈽?/span>
+        <span class="case-type">职业规划</span>
+        <span class="case-stars">★★★★★</span>
       </div>
-      <h3 class="case-title">涓冩潃鏍肩敺鍛?路 浠曢€旀檵鍗囧垎鏋?/h3>
-      <p class="case-content">鏉€鍗扮浉鐢熸牸灞€锛屽畼鏄熸湁鍔涳紝寤鸿鎶婃彙鏈潵涓夊勾浜嬩笟涓婂崌鏈燂紝涓诲姩浜夊彇绠＄悊宀椾綅锛屽ぇ杩愰厤鍚堜笅鏅嬪崌鍙湡銆?/p>
+      <h3 class="case-title">七杀格男命 · 仕途晋升分析</h3>
+      <p class="case-content">杀印相生格局，官星有力，建议把握未来三年事业上升期，主动争取管理岗位，大运配合下晋升可期。</p>
     </div>
     <div class="case-card reveal">
       <div class="case-meta">
-        <span class="case-type">濠氬Щ鎰熸儏</span>
-        <span class="case-stars">鈽呪槄鈽呪槄鈽?/span>
+        <span class="case-type">婚姻感情</span>
+        <span class="case-stars">★★★★★</span>
       </div>
-      <h3 class="case-title">姝ｅ畼鏍煎コ鍛?路 缁撳鏃舵満鍒ゆ柇</h3>
-      <p class="case-content">瀹樻槦褰撲护锛屽ぉ鍠滄槦鍔紝绮惧噯鍒ゆ柇褰撳勾涓嬪崐骞翠负缁撳鍚夊勾锛屽悗鏉ヨ鑰呭鏈熷畬濠氾紝鍙嶉鍑嗙‘銆?/p>
+      <h3 class="case-title">正官格女命 · 结婚时机判断</h3>
+      <p class="case-content">官星当令，天喜星动，精准判断当年下半年为结婚吉年，后来访者如期完婚，反馈准确。</p>
     </div>
     <div class="case-card reveal">
       <div class="case-meta">
-        <span class="case-type">鎶曡祫鍐崇瓥</span>
-        <span class="case-stars">鈽呪槄鈽呪槄鈽?/span>
+        <span class="case-type">投资决策</span>
+        <span class="case-stars">★★★★☆</span>
       </div>
-      <h3 class="case-title">椋熺鐢熻储鏍?路 鍒涗笟鏃舵満鍒嗘瀽</h3>
-      <p class="case-content">椋熺鐢熻储锛岄€傚悎鑷敱鑱屼笟锛岀粨鍚堟祦骞磋储鏄熷綋浠わ紝寤鸿鐗瑰畾骞翠唤鍒涗笟锛岃閬夸簡閿欒鏃舵満鐨勯闄┿€?/p>
+      <h3 class="case-title">食神生财格 · 创业时机分析</h3>
+      <p class="case-content">食神生财，适合自由职业，结合流年财星当令，建议特定年份创业，规避了错误时机的风险。</p>
     </div>
   </div>
 </section>
 
-<!-- 鑱旂郴鍖?-->
+<!-- 联系区 -->
 <section id="contact">
   <div class="contact-inner">
     <div class="section-header reveal">
       <p class="section-tag">Contact Us</p>
-      <h2 class="section-title">棰勭害鍜ㄨ</h2>
+      <h2 class="section-title">预约咨询</h2>
       <div class="section-line"></div>
     </div>
     <p class="reveal">
-      姣忎竴浠藉懡鐩橀兘鏄嫭涓€鏃犱簩鐨勪汉鐢熷瘑鐮併€?br>
-      鎻愪緵鍑虹敓骞存湀鏃ユ椂锛岃鎴戜滑涓烘偍瑙ｈ澶╂満锛屾妸鎻″懡杩愩€?    </p>
+      每一份命盘都是独一无二的人生密码。<br>
+      提供出生年月日时，让我们为您解读天机，把握命运。
+    </p>
     <div class="contact-cards reveal">
       <div class="contact-card">
-        <div class="contact-card-icon">馃挰</div>
-        <p class="contact-card-label">寰俊鍜ㄨ</p>
+        <div class="contact-card-icon">💬</div>
+        <p class="contact-card-label">微信咨询</p>
         <p class="contact-card-value">longshi_mingli</p>
       </div>
       <div class="contact-card">
-        <div class="contact-card-icon">馃摟</div>
-        <p class="contact-card-label">閭欢棰勭害</p>
+        <div class="contact-card-icon">📧</div>
+        <p class="contact-card-label">邮件预约</p>
         <p class="contact-card-value">info@longshi.com</p>
       </div>
       <div class="contact-card">
-        <div class="contact-card-icon">馃摓</div>
-        <p class="contact-card-label">鐢佃瘽鍜ㄨ</p>
-        <p class="contact-card-value">棰勭害鍒?/p>
+        <div class="contact-card-icon">📞</div>
+        <p class="contact-card-label">电话咨询</p>
+        <p class="contact-card-value">预约制</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 椤佃剼 -->
+<!-- 页脚 -->
 <footer>
-  <span class="footer-logo">榫欐皬鍛界悊</span>
-  <p>漏 2025 榫欐皬鍛界悊瀛?路 LONG'S MINGLI SYSTEM 路 娲炶澶╂満 鎶婃彙鍛借繍</p>
-  <p>鍛借繍涓嶆槸娉ㄥ畾鐨勶紝鑰屾槸鍙互琚鐭ャ€佺悊瑙ｃ€佹敼鍠勭殑</p>
+  <span class="footer-logo">龙氏命理</span>
+  <p>© 2025 龙氏命理学 · LONG'S MINGLI SYSTEM · 洞见天机 把握命运</p>
+  <p>命运不是注定的，而是可以被认知、理解、改善的</p>
 </footer>
 
 <script>
-// 鈹€鈹€ 鏄熺┖鑳屾櫙 鈹€鈹€
+// ── 星空背景 ──
 (function() {
   const canvas = document.getElementById('starfield');
   const ctx = canvas.getContext('2d');
@@ -834,7 +839,7 @@
   requestAnimationFrame(drawStars);
 })();
 
-// 鈹€鈹€ 婊氬姩鏄剧幇 鈹€鈹€
+// ── 滚动显现 ──
 (function() {
   const els = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {

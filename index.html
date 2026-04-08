@@ -863,24 +863,128 @@
     footer {
       position: relative;
       z-index: 1;
-      padding: 3rem 4rem;
+      padding: 4rem 2rem;
       border-top: 1px solid rgba(201,168,76,0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      background: linear-gradient(180deg, transparent, rgba(10,10,15,0.8));
     }
 
-    footer p {
-      font-size: 0.8rem;
-      color: var(--text-dim);
-      letter-spacing: 0.1em;
+    .footer-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footer-main {
+      margin-bottom: 2rem;
     }
 
     .footer-logo {
       font-family: 'ZCOOL XiaoWei', serif;
-      font-size: 1.2rem;
-      color: var(--gold-dim);
+      font-size: 1.5rem;
+      color: var(--gold);
       letter-spacing: 0.3em;
+    }
+
+    .footer-tagline {
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      margin-top: 0.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    .footer-trust {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      background: rgba(201,168,76,0.1);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: var(--gold-dim);
+    }
+
+    .footer-copyright {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.3rem;
+    }
+
+    .footer-philosophy {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      font-style: italic;
+    }
+
+    /* ── 浮动按钮 ── */
+    .floating-buttons {
+      position: fixed;
+      right: 1.5rem;
+      bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      z-index: 100;
+    }
+
+    .float-btn {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: none;
+      text-decoration: none;
+    }
+
+    .float-cta {
+      background: linear-gradient(135deg, var(--gold), #b8860b);
+      color: var(--ink);
+      font-weight: 600;
+      font-size: 0.7rem;
+      box-shadow: 0 4px 15px rgba(201,168,76,0.4);
+    }
+
+    .float-cta:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(201,168,76,0.6);
+    }
+
+    .float-top {
+      background: var(--ink-soft);
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.3);
+      font-size: 1.2rem;
+    }
+
+    .float-top:hover {
+      background: rgba(201,168,76,0.1);
+      border-color: var(--gold);
     }
 
     /* ── 动画 ── */
@@ -1568,6 +1672,28 @@
       .faq-question {
         font-size: 0.9rem;
         padding: 0.8rem 1rem;
+      }
+      .footer-links {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .footer-trust {
+        gap: 0.8rem;
+      }
+      .trust-item {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.8rem;
+      }
+      .floating-buttons {
+        right: 1rem;
+        bottom: 1rem;
+      }
+      .float-btn {
+        width: 48px;
+        height: 48px;
+      }
+      .float-cta {
+        font-size: 0.6rem;
       }
     }
   </style>
@@ -2269,16 +2395,47 @@
 
 <!-- 页脚 -->
 <footer>
-  <span class="footer-logo">龙氏命理</span>
-  <p>© 2025 龙氏命理学 · LONG'S MINGLI SYSTEM · 洞见天机 把握命运</p>
-  <p>命运不是注定的，而是可以被认知、理解、改善的</p>
+  <div class="footer-content">
+    <div class="footer-main">
+      <span class="footer-logo">龙氏命理</span>
+      <p class="footer-tagline">洞见天机 · 把握命运</p>
+    </div>
+    <div class="footer-links">
+      <a href="#origin">关于我们</a>
+      <a href="#services">服务项目</a>
+      <a href="#cases">成功案例</a>
+      <a href="#contact">联系方式</a>
+    </div>
+    <div class="footer-trust">
+      <div class="trust-item">🏆 1042年传承</div>
+      <div class="trust-item">⭐ 97.6%满意度</div>
+      <div class="trust-item">📋 12800+案例</div>
+    </div>
+    <p class="footer-copyright">© 2025 龙氏命理学 · LONG'S MINGLI SYSTEM</p>
+    <p class="footer-philosophy">命运不是注定的，而是可以被认知、理解、改善的</p>
+  </div>
 </footer>
+
+<!-- 浮动按钮 -->
+<div class="floating-buttons">
+  <a href="#contact" class="float-btn float-cta" title="预约咨询">
+    <span>立即咨询</span>
+  </a>
+  <button class="float-btn float-top" onclick="scrollToTop()" title="回到顶部">
+    ↑
+  </button>
+</div>
 
 <script>
 // ── FAQ展开/收起 ──
 function toggleFaq(el) {
   const item = el.parentElement;
   item.classList.toggle('active');
+}
+
+// ── 回到顶部 ──
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // ── 星空背景 ──

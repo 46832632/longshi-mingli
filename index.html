@@ -533,9 +533,19 @@
     .service-card:hover::before { height: 100%; }
 
     .service-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1.2rem;
-      display: block;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 1.2rem;
+      background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.05));
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 50%;
+      color: var(--gold);
+      font-family: 'ZCOOL XiaoWei', serif;
+      letter-spacing: 0;
     }
 
     .service-name {
@@ -1314,8 +1324,18 @@
     }
     
     .knowledge-icon {
-      font-size: 2rem;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
       margin-bottom: 0.8rem;
+      background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.05));
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 50%;
+      color: var(--gold);
+      font-family: 'ZCOOL XiaoWei', serif;
     }
     
     .knowledge-title {
@@ -1832,12 +1852,12 @@
 
   <div class="services-grid">
     <div class="service-card reveal">
-      <span class="service-icon">☯</span>
+      <span class="service-icon">天</span>
       <h3 class="service-name">八字命理</h3>
       <p class="service-desc">以出生年月日时为基础，分析格局、用神、大运，精准判断人生走势、事业财运、婚姻健康。</p>
     </div>
     <div class="service-card reveal">
-      <span class="service-icon">✦</span>
+      <span class="service-icon">星</span>
       <h3 class="service-name">紫微斗数</h3>
       <p class="service-desc">以十四主星、十二宫位、四化飞星为核心，从空间维度解析命运格局与人生轨迹。</p>
     </div>
@@ -1847,17 +1867,17 @@
       <p class="service-desc">以六十四卦为基础，通过动变、旺衰、刑冲，精准预测具体事项的发展走向与应期。</p>
     </div>
     <div class="service-card reveal">
-      <span class="service-icon">🧭</span>
+      <span class="service-icon">门</span>
       <h3 class="service-name">奇门遁甲</h3>
       <p class="service-desc">以九宫八卦、三奇六仪、八门九星为核心，用于择时选向、趋吉避凶、决策辅助。</p>
     </div>
     <div class="service-card reveal">
-      <span class="service-icon">🏯</span>
+      <span class="service-icon">地</span>
       <h3 class="service-name">玄空风水</h3>
       <p class="service-desc">以飞星九宫、四大格局为核心，调整居住与工作环境，改善丁财两旺的空间能量。</p>
     </div>
     <div class="service-card reveal">
-      <span class="service-icon">👁</span>
+      <span class="service-icon">相</span>
       <h3 class="service-name">相学鉴定</h3>
       <p class="service-desc">以面相三停五官、手相三大线八丘为基础，辅助命理分析，全面把握命运特征。</p>
     </div>
@@ -2273,7 +2293,7 @@
   
   <div class="knowledge-grid reveal">
     <div class="knowledge-card">
-      <div class="knowledge-icon">📖</div>
+      <div class="knowledge-icon">元</div>
       <h3 class="knowledge-title">八字入门</h3>
       <p class="knowledge-desc">了解生辰八字的基本构成，天干地支的五行属性，十神体系的含义与运用。</p>
       <div class="knowledge-tags">
@@ -2281,7 +2301,7 @@
       </div>
     </div>
     <div class="knowledge-card">
-      <div class="knowledge-icon">⚔️</div>
+      <div class="knowledge-icon">神</div>
       <h3 class="knowledge-title">十神详解</h3>
       <p class="knowledge-desc">正官七杀、正印偏印、食神伤官...十神心性决定人生格局与命运走向。</p>
       <div class="knowledge-tags">
@@ -2289,7 +2309,7 @@
       </div>
     </div>
     <div class="knowledge-card">
-      <div class="knowledge-icon">🏛️</div>
+      <div class="knowledge-icon">格</div>
       <h3 class="knowledge-title">格局论命</h3>
       <p class="knowledge-desc">从《子平真诠》看格局高下，成格破格决定人生层次，取用定格是命理核心。</p>
       <div class="knowledge-tags">
@@ -2297,7 +2317,7 @@
       </div>
     </div>
     <div class="knowledge-card">
-      <div class="knowledge-icon">🌊</div>
+      <div class="knowledge-icon">流</div>
       <h3 class="knowledge-title">流通有情</h3>
       <p class="knowledge-desc">《滴天髓》核心思想：五行流通为贵，源远流长则富贵，滞阻则困顿。</p>
       <div class="knowledge-tags">
@@ -2305,7 +2325,7 @@
       </div>
     </div>
     <div class="knowledge-card">
-      <div class="knowledge-icon">🌡️</div>
+      <div class="knowledge-icon">候</div>
       <h3 class="knowledge-title">调候为急</h3>
       <p class="knowledge-desc">《穷通宝鉴》精髓：冬木无火不生，夏金无水不灵，调候用神至关重要。</p>
       <div class="knowledge-tags">
@@ -2313,7 +2333,7 @@
       </div>
     </div>
     <div class="knowledge-card">
-      <div class="knowledge-icon">🔮</div>
+      <div class="knowledge-icon">斗</div>
       <h3 class="knowledge-title">紫微斗数</h3>
       <p class="knowledge-desc">南派星曜体系，十四主星耀世，宫位流转人生，六吉六煞左右命运。</p>
       <div class="knowledge-tags">

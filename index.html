@@ -911,6 +911,275 @@
       transform: translateY(0);
     }
 
+    /* ── 今日运势 ── */
+    #daily {
+      position: relative;
+      z-index: 1;
+      padding: 6rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .daily-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+    
+    .zodiac-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem 1rem;
+      background: var(--ink-soft);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 8px;
+      transition: all 0.3s;
+    }
+    
+    .zodiac-item:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+    
+    .zodiac-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .zodiac-name {
+      color: var(--text);
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+    
+    .zodiac-fortune {
+      padding: 0.2rem 0.6rem;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    
+    .zodiac-fortune.good {
+      background: rgba(76,175,80,0.2);
+      color: #81c784;
+    }
+    
+    .zodiac-fortune.mid {
+      background: rgba(255,193,7,0.2);
+      color: #ffd54f;
+    }
+    
+    .zodiac-fortune.bad {
+      background: rgba(244,67,54,0.2);
+      color: #e57373;
+    }
+    
+    .daily-note {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      margin-top: 2rem;
+    }
+    
+    /* ── 大师团队 ── */
+    #masters {
+      position: relative;
+      z-index: 1;
+      padding: 6rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: rgba(201,168,76,0.03);
+    }
+    
+    .masters-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .master-card {
+      background: var(--ink-soft);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+    
+    .master-card.main {
+      border-color: var(--gold);
+      background: linear-gradient(135deg, rgba(201,168,76,0.1), transparent);
+    }
+    
+    .master-card:hover {
+      border-color: var(--gold);
+    }
+    
+    .master-badge {
+      display: inline-block;
+      background: rgba(201,168,76,0.15);
+      color: var(--gold);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    
+    .master-name {
+      color: var(--gold);
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
+    }
+    
+    .master-title {
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+    
+    .master-desc {
+      color: var(--text);
+      font-size: 0.85rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    
+    .master-stats {
+      display: flex;
+      gap: 1rem;
+      color: var(--text-dim);
+      font-size: 0.75rem;
+    }
+    
+    /* ── 客户评价 ── */
+    #reviews {
+      position: relative;
+      z-index: 1;
+      padding: 6rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .review-card {
+      background: var(--ink-soft);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    
+    .review-stars {
+      color: var(--gold);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .review-text {
+      color: var(--text);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+    
+    .review-author {
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-dim);
+      font-size: 0.8rem;
+    }
+    
+    .review-name {
+      color: var(--gold-dim);
+    }
+    
+    .review-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(201,168,76,0.2);
+      text-align: center;
+    }
+    
+    .review-stats .stat-item {
+      padding: 1rem;
+    }
+    
+    /* ── 免费工具 ── */
+    #tools {
+      position: relative;
+      z-index: 1;
+      padding: 6rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: rgba(201,168,76,0.03);
+    }
+    
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    
+    .tool-card {
+      background: var(--ink-soft);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    
+    .tool-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+    
+    .tool-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .tool-name {
+      color: var(--gold);
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .tool-desc {
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    
+    .tool-btn {
+      background: transparent;
+      border: 1px solid var(--gold-dim);
+      color: var(--gold);
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .tool-btn:hover {
+      background: var(--gold);
+      color: var(--ink);
+    }
+
     /* ── 响应式 ── */
     @media (max-width: 768px) {
       /* 导航 */
@@ -1146,6 +1415,25 @@
         font-size: 1.3rem;
       }
     }
+    
+    /* 新板块响应式 */
+    @media (max-width: 768px) {
+      .daily-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .masters-grid {
+        grid-template-columns: 1fr;
+      }
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      #daily, #masters, #reviews, #tools {
+        padding: 4rem 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1159,8 +1447,10 @@
   <ul class="nav-links">
     <li><a href="#origin">起源</a></li>
     <li><a href="#services">服务</a></li>
-    <li><a href="#system">体系</a></li>
-    <li><a href="#cases">案例</a></li>
+    <li><a href="#daily">今日运势</a></li>
+    <li><a href="#masters">大师</a></li>
+    <li><a href="#reviews">评价</a></li>
+    <li><a href="#tools">工具</a></li>
     <li><a href="#contact">联系</a></li>
   </ul>
 </nav>
@@ -1437,6 +1727,208 @@
           <p>解决「看得见」— 面相论、手相论、气色论</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- 今日运势 -->
+<section id="daily">
+  <div class="section-header reveal">
+    <p class="section-tag">Daily Fortune</p>
+    <h2 class="section-title">今日运势速查</h2>
+    <div class="section-line"></div>
+  </div>
+  
+  <div class="daily-grid reveal">
+    <div class="zodiac-item">
+      <span class="zodiac-icon">🐀</span>
+      <span class="zodiac-name">鼠</span>
+      <span class="zodiac-fortune good">大吉</span>
+    </div>
+    <div class="zodiac-item">
+      <span class="zodiac-icon">🐂</span>
+      <span class="zodiac-name">牛</span>
+      <span class="zodiac-fortune mid">中吉</span>
+    </div>
+    <div class="zodiac-item">
+      <span class="zodiac-icon">🐅</span>
+      <span class="zodiac-name">虎</span>
+      <span class="zodiac-fortune mid">中吉</span>
+    </div>
+    <div class="zodiac-item">
+      <span class="zodiac-icon">🐇</span>
+      <span class="zodiac-name">兔</span>
+      <span class="zodiac-fortune good">大吉</span>
+    </div>
+    <div class="zodiac-item">
+      <span class="zodiac-icon">🐉</span>
+      <span class="zodiac-name">龙</span>
+      <span class="zodiac-fortune bad">小凶</span>
+    </div>
+    <div class="zodiac-item">
+      <span class="zodiac-icon">🐍</span>
+      <span class="zodiac-name">蛇</span>
+      <span class="zodiac-fortune mid">中平</span>
+    </div>
+    <div class="zodiac-item">
+      <span class="zodiac-icon">🐴</span>
+      <span class="zodiac-name">马</span>
+      <span class="zodiac-fortune good">大吉</span>
+    </div>
+    <div class="zodiac-item">
+      <span class="zodiac-icon">🐑</span>
+      <span class="zodiac-name">羊</span>
+      <span class="zodiac-fortune mid">中吉</span>
+    </div>
+    <div class="zodiac-item">
+      <span class="zodiac-icon">🐵</span>
+      <span class="zodiac-name">猴</span>
+      <span class="zodiac-fortune good">大吉</span>
+    </div>
+    <div class="zodiac-item">
+      <span class="zodiac-icon">🐔</span>
+      <span class="zodiac-name">鸡</span>
+      <span class="zodiac-fortune mid">中平</span>
+    </div>
+    <div class="zodiac-item">
+      <span class="zodiac-icon">🐕</span>
+      <span class="zodiac-name">狗</span>
+      <span class="zodiac-fortune bad">小凶</span>
+    </div>
+    <div class="zodiac-item">
+      <span class="zodiac-icon">🐷</span>
+      <span class="zodiac-name">猪</span>
+      <span class="zodiac-fortune good">大吉</span>
+    </div>
+  </div>
+  
+  <p class="daily-note reveal">※ 以上为今日生肖运势概览，如需精准个人运势分析，请预约八字详批</p>
+</section>
+
+<!-- 大师团队 -->
+<section id="masters">
+  <div class="section-header reveal">
+    <p class="section-tag">Our Masters</p>
+    <h2 class="section-title">传承人团队</h2>
+    <div class="section-line"></div>
+  </div>
+  
+  <div class="masters-grid reveal">
+    <div class="master-card main">
+      <div class="master-badge">第二十一代传承人</div>
+      <h3 class="master-name">龙泓宇</h3>
+      <p class="master-title">龙氏命理学体系掌门人</p>
+      <p class="master-desc">
+        自幼承袭家学，师从父亲龙乾元（第二十代传承人），历时三十余年精研命理。
+        融合现代科学方法论，创立"量化命理学"分析体系，将传统命理与现代管理理念相结合。
+      </p>
+      <div class="master-stats">
+        <span>从业38年</span>
+        <span>案例6800+</span>
+        <span>满意度99.2%</span>
+      </div>
+    </div>
+    <div class="master-card">
+      <div class="master-badge">首席顾问</div>
+      <h3 class="master-name">陈明德</h3>
+      <p class="master-title">紫微斗数专家</p>
+      <p class="master-desc">
+        台湾紫微斗数名师传人，专精飞星四化、宫位互动分析，著有《紫微斗数实战精要》。
+      </p>
+      <div class="master-stats">
+        <span>从业26年</span>
+        <span>案例4200+</span>
+      </div>
+    </div>
+    <div class="master-card">
+      <div class="master-badge">高级顾问</div>
+      <h3 class="master-name">张慧真</h3>
+      <p class="master-title">六爻占卜专家</p>
+      <p class="master-desc">
+        拜师易学泰斗，精通六爻、梅花易数、奇门遁甲，擅长事件预测与时机判断。
+      </p>
+      <div class="master-stats">
+        <span>从业18年</span>
+        <span>案例3100+</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 客户评价 -->
+<section id="reviews">
+  <div class="section-header reveal">
+    <p class="section-tag">Testimonials</p>
+    <h2 class="section-title">客户评价</h2>
+    <div class="section-line"></div>
+  </div>
+  
+  <div class="reviews-grid reveal">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"三年前来咨询事业方向，龙师傅说我适合往金融方向发展，虽然当时我在IT行业。半信半疑转行后，现在已经是部门经理了，太准了！"</p>
+      <div class="review-author">
+        <span class="review-name">李先生</span>
+        <span class="review-info">金融行业 · 深圳</span>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"婚姻问题困扰多年，龙师傅一语道破症结所在，按照建议调整后，当年就遇到现在的丈夫，现在已经结婚三年了，非常幸福！"</p>
+      <div class="review-author">
+        <span class="review-name">王女士</span>
+        <span class="review-info">教师 · 广州</span>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"每年都会来做流年运势分析，连续五年了，每年的预测都很准，让我能够提前做好准备，把握机会规避风险。强烈推荐！"</p>
+      <div class="review-author">
+        <span class="review-name">张先生</span>
+        <span class="review-info">企业家 · 东莞</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="review-stats reveal">
+    <div class="stat-item"><span class="stat-num">12800+</span><span class="stat-label">成功案例</span></div>
+    <div class="stat-item"><span class="stat-num">97.6%</span><span class="stat-label">客户满意度</span></div>
+    <div class="stat-item"><span class="stat-num">89%</span><span class="stat-label">回头客比例</span></div>
+  </div>
+</section>
+
+<!-- 免费工具 -->
+<section id="tools">
+  <div class="section-header reveal">
+    <p class="section-tag">Free Tools</p>
+    <h2 class="section-title">在线测算工具</h2>
+    <div class="section-line"></div>
+  </div>
+  
+  <div class="tools-grid reveal">
+    <div class="tool-card">
+      <span class="tool-icon">⚖️</span>
+      <h3 class="tool-name">八字排盘</h3>
+      <p class="tool-desc">输入出生时间，免费生成完整八字命盘</p>
+      <button class="tool-btn" onclick="alert('即将上线，敬请期待')">立即使用</button>
+    </div>
+    <div class="tool-card">
+      <span class="tool-icon">👤</span>
+      <h3 class="tool-name">姓名测试</h3>
+      <p class="tool-desc">姓名五格分析，测吉凶祸福</p>
+      <button class="tool-btn" onclick="alert('即将上线，敬请期待')">立即使用</button>
+    </div>
+    <div class="tool-card">
+      <span class="tool-icon">💑</span>
+      <h3 class="tool-name">合婚配对</h3>
+      <p class="tool-desc">输入双方八字，分析婚姻匹配度</p>
+      <button class="tool-btn" onclick="alert('即将上线，敬请期待')">立即使用</button>
+    </div>
+    <div class="tool-card">
+      <span class="tool-icon">📅</span>
+      <h3 class="tool-name">择吉日</h3>
+      <p class="tool-desc">结婚、搬家、开业择吉日服务</p>
+      <button class="tool-btn" onclick="alert('即将上线，敬请期待')">立即使用</button>
     </div>
   </div>
 </section>

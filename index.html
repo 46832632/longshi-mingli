@@ -1180,6 +1180,135 @@
       color: var(--ink);
     }
 
+    /* ── 命理知识库 ── */
+    #knowledge {
+      position: relative;
+      z-index: 1;
+      padding: 6rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .knowledge-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    
+    .knowledge-card {
+      background: var(--ink-soft);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.3s;
+    }
+    
+    .knowledge-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+    
+    .knowledge-icon {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+    
+    .knowledge-title {
+      color: var(--gold);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .knowledge-desc {
+      color: var(--text);
+      font-size: 0.85rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    
+    .knowledge-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .knowledge-tags span {
+      background: rgba(201,168,76,0.1);
+      color: var(--gold-dim);
+      padding: 0.2rem 0.6rem;
+      border-radius: 3px;
+      font-size: 0.7rem;
+    }
+    
+    .knowledge-note {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+    
+    /* ── 常见问题 ── */
+    #faq {
+      position: relative;
+      z-index: 1;
+      padding: 6rem 4rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .faq-list {
+      margin-top: 3rem;
+    }
+    
+    .faq-item {
+      background: var(--ink-soft);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      color: var(--text);
+      font-size: 0.95rem;
+      transition: all 0.3s;
+    }
+    
+    .faq-question:hover {
+      background: rgba(201,168,76,0.05);
+      color: var(--gold);
+    }
+    
+    .faq-arrow {
+      color: var(--gold-dim);
+      transition: transform 0.3s;
+    }
+    
+    .faq-item.active .faq-arrow {
+      transform: rotate(180deg);
+    }
+    
+    .faq-answer {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+    
+    .faq-item.active .faq-answer {
+      padding: 1rem 1.5rem;
+      max-height: 500px;
+    }
+
     /* ── 响应式 ── */
     @media (max-width: 768px) {
       /* 导航 */
@@ -1430,8 +1559,15 @@
       .tools-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-      #daily, #masters, #reviews, #tools {
+      #daily, #masters, #reviews, #tools, #knowledge, #faq {
         padding: 4rem 1rem;
+      }
+      .knowledge-grid {
+        grid-template-columns: 1fr;
+      }
+      .faq-question {
+        font-size: 0.9rem;
+        padding: 0.8rem 1rem;
       }
     }
   </style>
@@ -1449,8 +1585,10 @@
     <li><a href="#services">服务</a></li>
     <li><a href="#daily">今日运势</a></li>
     <li><a href="#masters">大师</a></li>
+    <li><a href="#knowledge">知识</a></li>
     <li><a href="#reviews">评价</a></li>
     <li><a href="#tools">工具</a></li>
+    <li><a href="#cases">案例</a></li>
     <li><a href="#contact">联系</a></li>
   </ul>
 </nav>
@@ -1933,6 +2071,134 @@
   </div>
 </section>
 
+<!-- 常见问题 -->
+<section id="faq">
+  <div class="section-header reveal">
+    <p class="section-tag">FAQ</p>
+    <h2 class="section-title">常见问题</h2>
+    <div class="section-line"></div>
+  </div>
+  
+  <div class="faq-list reveal">
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span>龙氏命理有多少年历史？</span>
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-answer">
+        龙氏命理传承1042年，始于北宋雍熙年间（984-987），第一代传承人龙渊为进士出身，精通易学。历经21代传承人不断完善，形成了今天的龙氏命理学体系。
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span>八字算命需要提供什么信息？</span>
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-answer">
+        只需提供：出生年月日时（公历或农历均可）、出生地点、性别。建议标明具体时辰（精确到时辰即可，如子时、丑时等）。
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span>八字分析和紫微斗数有什么区别？</span>
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-answer">
+        八字以天干地支为载体，分析格局、用神、大运；紫微斗数以星曜宫位为载体，更注重空间维度的人生解读。两者结合可以更全面地把握命运。
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span>咨询后多久可以得到分析结果？</span>
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-answer">
+        常规命理分析1-3个工作日出具；详细流年分析3-5个工作日；综合命盘（含紫微斗数）5-7个工作日。急件可加急处理。
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span>咨询收费是多少？</span>
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-answer">
+        根据服务类型定价：基础八字分析299元起，详细命盘解析599元起，综合命理咨询（含五大术数）1299元起。企业/重大决策咨询面议。具体请微信咨询。
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span>算命结果准不准？</span>
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-answer">
+        龙氏命理以《子平真诠》《滴天髓》《穷通宝鉴》等经典为理论基础，结合12800+实战案例验证，准确率受到客户广泛认可。但命理是概率性预测而非绝对宿命论，仅供参考。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 命理知识库 -->
+<section id="knowledge">
+  <div class="section-header reveal">
+    <p class="section-tag">Knowledge Base</p>
+    <h2 class="section-title">命理知识库</h2>
+    <div class="section-line"></div>
+  </div>
+  
+  <div class="knowledge-grid reveal">
+    <div class="knowledge-card">
+      <div class="knowledge-icon">📖</div>
+      <h3 class="knowledge-title">八字入门</h3>
+      <p class="knowledge-desc">了解生辰八字的基本构成，天干地支的五行属性，十神体系的含义与运用。</p>
+      <div class="knowledge-tags">
+        <span>入门</span><span>基础</span><span>新手必读</span>
+      </div>
+    </div>
+    <div class="knowledge-card">
+      <div class="knowledge-icon">⚔️</div>
+      <h3 class="knowledge-title">十神详解</h3>
+      <p class="knowledge-desc">正官七杀、正印偏印、食神伤官...十神心性决定人生格局与命运走向。</p>
+      <div class="knowledge-tags">
+        <span>进阶</span><span>核心</span>
+      </div>
+    </div>
+    <div class="knowledge-card">
+      <div class="knowledge-icon">🏛️</div>
+      <h3 class="knowledge-title">格局论命</h3>
+      <p class="knowledge-desc">从《子平真诠》看格局高下，成格破格决定人生层次，取用定格是命理核心。</p>
+      <div class="knowledge-tags">
+        <span>进阶</span><span>深度</span>
+      </div>
+    </div>
+    <div class="knowledge-card">
+      <div class="knowledge-icon">🌊</div>
+      <h3 class="knowledge-title">流通有情</h3>
+      <p class="knowledge-desc">《滴天髓》核心思想：五行流通为贵，源远流长则富贵，滞阻则困顿。</p>
+      <div class="knowledge-tags">
+        <span>高阶</span><span>理论</span>
+      </div>
+    </div>
+    <div class="knowledge-card">
+      <div class="knowledge-icon">🌡️</div>
+      <h3 class="knowledge-title">调候为急</h3>
+      <p class="knowledge-desc">《穷通宝鉴》精髓：冬木无火不生，夏金无水不灵，调候用神至关重要。</p>
+      <div class="knowledge-tags">
+        <span>高阶</span><span>实用</span>
+      </div>
+    </div>
+    <div class="knowledge-card">
+      <div class="knowledge-icon">🔮</div>
+      <h3 class="knowledge-title">紫微斗数</h3>
+      <p class="knowledge-desc">南派星曜体系，十四主星耀世，宫位流转人生，六吉六煞左右命运。</p>
+      <div class="knowledge-tags">
+        <span>入门</span><span>进阶</span>
+      </div>
+    </div>
+  </div>
+  
+  <p class="knowledge-note reveal">更多命理知识持续更新中... <a href="#contact" style="color:var(--gold)">订阅获取最新文章</a></p>
+</section>
+
 <!-- 案例区 -->
 <section id="cases">
   <div class="section-header reveal">
@@ -2009,6 +2275,12 @@
 </footer>
 
 <script>
+// ── FAQ展开/收起 ──
+function toggleFaq(el) {
+  const item = el.parentElement;
+  item.classList.toggle('active');
+}
+
 // ── 星空背景 ──
 (function() {
   const canvas = document.getElementById('starfield');
